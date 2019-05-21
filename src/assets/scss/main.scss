@@ -1,0 +1,29 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+body {
+  background-color: black;
+  width: 100vw;
+  font-family: sofiapro-regular;
+  color: #fff;
+  overflow: hidden;
+
+  .body-container {
+    overflow: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0
+  }
+
+
+}
+
+@import "../../components//headercomponent/header.scss";
+@import "../../components//listvideocomponent/listvideo.scss";
+@import "../../components//videodetailcomponent/videodetail.scss";
+@import "../../components//usercomponent//user.scss";

@@ -1,0 +1,1 @@
+export const COUNT_FETCH_DEFAULT_COMMENT = 40;

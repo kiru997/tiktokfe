@@ -1,0 +1,66 @@
+.user-detail-container {
+    display: block;
+    height: 200px;
+    width: 100%;
+    border-bottom: 1px solid hsla(0, 0%, 100%, .2);
+
+    .user-detail-content {
+        display: flex;
+        padding-top: 20px;
+        padding-left: 100px;
+
+        .user-avatar {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            margin-right: 64px;
+            overflow: hidden;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .user-detail {
+            h1 {
+                overflow: hidden;
+                -o-text-overflow: ellipsis;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                font-size: 48px;
+                font-weight: 700;
+                line-height: 1.17;
+                color: #fff;
+                margin: 0 0 8px;
+            }
+
+            .user-uniqueid {
+                font-size: 24px;
+                font-weight: 500;
+                line-height: 1.33;
+                color: #fff;
+                margin: 0 0 8px;
+            }
+
+            .user-count-info {
+                font-size: 24px;
+                font-weight: 500;
+                line-height: 1.33;
+                margin: 0 0 16px;
+                ._user_header_number {
+                    color: hsla(0, 0%, 100%, .9);
+                    margin-right: 6px;
+                    margin-left: 6px;
+                    &:first-child{
+                        margin-left:0;
+                    }
+                }
+                ._user_header_unit,._user_header_point {
+                    color: hsla(0, 0%, 100%, .6);
+                }
+                ._user_header_point{
+                    margin-left: 8px;
+                }
+            }
+        }
+    }
+
+}

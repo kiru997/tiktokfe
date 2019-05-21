@@ -1,0 +1,256 @@
+.video-container {
+  &.not-padding-top{
+    padding-top:0;
+  }
+  // padding-top: 100px;
+
+  .show-video {
+    top: 0;
+    width: 72%;
+    left: 0;
+    margin: auto;
+    padding-top: 40px;
+
+    ._scroll_load_more_loading {
+      display: flex;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+
+      .tiktok-loading {
+        display: block;
+        margin: 6px;
+        background-image: url(../../assets//images/tiktok-loading.png);
+        background-size: 48px;
+        width: 48px;
+        height: 48px;
+        -webkit-animation: loading 1s steps(60, start) infinite;
+        animation: loading 1s steps(60, start) infinite;
+      }
+    }
+
+    .feed-video-item {
+      float: left;
+      margin: 0 24px 20px 0;
+      width: 216px;
+      height: 290px;
+      color: #fff;
+      .item-container {
+        height: 100%;
+        width: 100%;
+        position: relative;
+        border-radius: 6px;
+        background-repeat: no-repeat;
+        background-position: 50%;
+        background-size: cover;
+        background-color: #161823;
+
+        .icon-sound {
+          z-index: 2;
+          position: absolute;
+          left: 16px;
+          top: 16px;
+        }
+
+        .image-play {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          top: 0;
+          z-index: 1;
+          visibility: hidden;
+          opacity: 0;
+          background-repeat: no-repeat;
+          background-position: 50%;
+          background-size: 30%;
+          background-image: url("../../assets/images/play_icon.svg")
+        }
+
+        .info-character {
+          transition: transform .3s, opacity .3s, -webkit-transform .3s;
+          background-image: linear-gradient(180deg, transparent, rgba(0, 0, 0, .5) 98%);
+          position: absolute;
+          bottom: 0;
+          right: 0;
+          left: 0;
+          margin: 0 auto;
+          width: 100%;
+          height: 50%;
+
+          .character {
+            display: inline-block;
+            position: absolute;
+            left: 15px;
+            top: 75%;
+            -webkit-transform: translateY(-50%);
+            -moz-transform: translateY(-50%);
+            -ms-transform: translateY(-50%);
+            -o-transform: translateY(-50%);
+            transform: translateY(-50%);
+
+            &:last-child {
+              left: auto;
+              right: 15px;
+            }
+          }
+
+          .avatar-character {
+            width: 40px;
+            height: 40px;
+            // left:20px;
+            background-repeat: no-repeat;
+            background-position: 50%;
+            background-size: cover;
+            border-radius: 50%;
+            overflow: hidden;
+          }
+        }
+      }
+
+      &:hover {
+        .image-play {
+          visibility: visible;
+          background-color: rgba(0, 0, 0, .6);
+          opacity: 1;
+        }
+
+        .info-character {
+          opacity: 0;
+          -webkit-transform: translateY(15%);
+          -ms-transform: translateY(15%);
+          transform: translateY(15%);
+        }
+
+      }
+    }
+
+    .feed-video-item:first-child {
+      width: 456px;
+      height: 600px;
+
+      .image-play {
+        background-size: 20%;
+      }
+
+      .video-show {
+        object-fit: cover;
+        height: 100%;
+        width: 100%;
+        border-radius: 7px;
+      }
+    }
+
+  }
+}
+
+// .video-container {
+//   margin: 0 120px 0 120px;
+
+//   .title-feed {
+//     font-size: 48px;
+//     line-height: 1.17;
+//     color: #fff;
+//     padding: 20px 0 20px 0;
+//   }
+
+//   .show-video {
+//     display: flex;
+
+//     .feed-videos {
+
+//       width: 455px;
+//       height: 600px;
+
+//       .video-show {
+//         object-fit: cover;
+//         height: 100%;
+//         width: 100%;
+//         border-radius: 7px;
+//       }
+//     }
+
+//     .feed-images {
+//       width: 216px;
+//       margin-left: 20px;
+
+//       .is-image {
+//         margin-top: 12px;
+//       }
+
+//       .feed-image-item {
+//         height: 49%;
+//         border-radius: 4px;
+//         position: relative;
+//         background-repeat: no-repeat;
+//         background-position: 50%;
+//         background-size: cover;
+//         background-color: #161823;
+
+//         &:hover {
+//           .image-play {
+//             visibility: visible;
+//             background-color: rgba(0, 0, 0, .6);
+//             opacity: 1;
+//           }
+//           .info-character{
+//             opacity: 0;
+//             -webkit-transform: translateY(50%);
+//             -ms-transform: translateY(50%);
+//             transform: translateY(50%);
+//           }
+//         }
+
+//         .image-play {
+//           visibility: hidden;
+//           width: 100%;
+//           height: 100%;
+//           display: flex;
+
+//           .image-play-item {
+//             width: 30%;
+//             margin: auto;
+
+//           }
+//         }
+
+//         .info-character {
+//           background-image: linear-gradient(180deg,transparent,rgba(0,0,0,.5) 98%);
+//           width: 100%;
+//           position: absolute;
+//           height: 60px;
+//           bottom: 0;
+//           transition: transform .3s,opacity .3s,-webkit-transform .3s;
+//           .info-container {
+//             display: flex;
+//             justify-content: space-between;
+//             align-items: center;
+//             padding: 7px 16px 0 16px;
+
+//             .avatar-character {
+//               display: block;
+//               width: 40px;
+//               height: 40px;
+//               background-repeat: no-repeat;
+//               background-position: 50%;
+//               background-size: cover;
+//               border-radius: 50%;
+//               overflow: hidden;
+//             }
+
+//             .heart-character {
+//               font-size: 16px;
+//               font-weight: 700;
+//               line-height: 1;
+//               color: #fff;
+//             }
+//           }
+
+//         }
+
+//       }
+
+//     }
+//   }
+
+// }
