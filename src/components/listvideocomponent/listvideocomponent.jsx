@@ -15,17 +15,23 @@ const ListvideoComponent = props => {
     actSetLoadMore
   } = context;
   const [isMute, setIsMute] = useState(true);
-
   const onChangeSound = () => {
     setIsMute(!isMute);
   };
+
   useEffect(() => {
-    if (Object.keys(params).length == 0 || (params.region && !params.userUid)) {
-      actFetchListVideo(region, false);
-      actSetLoadMore(true);
-    } else if (params && params.userUid) {
-      actgetListUserVideo(params.userUid, region);
-      actSetLoadMore(false);
+    if (params && !params.videoUid) {
+      if (
+        Object.keys(params).length == 0 ||
+        (params.region && !params.userUid && !params.videoUid)
+      ) {
+        actFetchListVideo(region, false);
+        actFetchListVideo(region, true);
+        actSetLoadMore(true);
+      } else if (params && params.userUid) {
+        actgetListUserVideo(params.userUid, region);
+        actSetLoadMore(false);
+      }
     }
   }, [region]);
   return (

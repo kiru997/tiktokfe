@@ -1,12 +1,10 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
-
 import GlobalState from "../context/GlobalState.jsx";
 import HeaderContainer from "./Headercontainer.jsx";
 import ListvideoContainer from "./ListvideoContainer.jsx";
 import VideodetailContainer from "./VideodetailContainer.jsx";
 import UserContainer from "./UserContainer.jsx";
-
 const AppContainer = () => {
   return (
     <GlobalState>
@@ -30,6 +28,11 @@ const AppContainer = () => {
         <Route
           exact
           path="/:region/users/:userUid"
+          component={math => <ListvideoContainer {...math} />}
+        />
+         <Route
+          exact
+          path="/:region/videos/:videoUid"
           component={math => <ListvideoContainer {...math} />}
         />
       </Switch>

@@ -1,13 +1,7 @@
 export const getPercentScrollOfElement = event => {
-  const {
-    scrollTop
-  } = event.target;
-  const {
-    scrollHeight
-  } = event.target;
-  const {
-    clientHeight
-  } = event.target;
+  const { scrollTop } = event.target;
+  const { scrollHeight } = event.target;
+  const { clientHeight } = event.target;
   const pos = ((scrollTop + clientHeight) / scrollHeight) * 100;
   return Math.round(pos);
 };
@@ -19,10 +13,10 @@ export const formatHeartCount = number => {
 };
 export const debounce = (func, wait, immediate) => {
   let timeout;
-  return function () {
+  return function() {
     const context = this;
     const args = arguments;
-    const later = function () {
+    const later = function() {
       timeout = null;
       if (!immediate) func.apply(context, args);
     };

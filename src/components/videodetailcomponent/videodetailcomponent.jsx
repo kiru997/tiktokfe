@@ -6,8 +6,7 @@ import { getCurrentRegion } from "../../actions/region";
 const VideodetailComponent = props => {
   const context = useContext(AppContext);
   const videoUid = props.match.params.videoUid;
-  const regionCode = getCurrentRegion().code;
-  const { listVideo, actFetchListVideo } = context;
+  const { region, listVideo, actFetchListVideo } = context;
   const [currentVideo, setCurrentVideo] = useState({});
   const [previousVideoUid, setPreviousVideoUid] = useState("");
   const [nextVideoUid, setNextVideoUid] = useState("");
@@ -43,7 +42,6 @@ const VideodetailComponent = props => {
     isPlay ? videoElement.pause() : videoElement.play();
   };
   const onCloseDetail = () => {
-    context.actSetOpenDetail(false);
     setIsPlay(true);
   };
 
@@ -51,7 +49,7 @@ const VideodetailComponent = props => {
     Object.keys(currentVideo).length !== 0 && (
       <div className="video-detail-container">
         {previousVideoUid && (
-          <Link to={`/${regionCode}/videos/${previousVideoUid}`}>
+          <Link to={`/${region}/videos/${previousVideoUid}`}>
             <img
               className="back-icon arrow-icon"
               src={require("../../assets/images/back.svg")}
@@ -59,7 +57,7 @@ const VideodetailComponent = props => {
           </Link>
         )}
         {nextVideoUid && (
-          <Link to={`/${regionCode}/videos/${nextVideoUid}`}>
+          <Link to={`/${region}/videos/${nextVideoUid}`}>
             <img
               className="next-icon arrow-icon"
               src={require("../../assets/images/next.svg")}
@@ -97,6 +95,7 @@ const VideodetailComponent = props => {
           <ListComment currentVideo={currentVideo} />
         </div>
         <Link
+          onClick={() => onCloseDetail()}
           to={`/${getCurrentRegion().code}`}
           className="icon-close"
           style={{

@@ -1,5 +1,5 @@
 import React, { useState, useReducer, useEffect } from "react";
-import { HashRouter as Router } from "react-router-dom";
+import { BrowserRouter as Router } from "react-router-dom";
 
 import GlobalContext from "../context/GlobalContext";
 import AppReducer from "../reducers/appReducer";
@@ -14,8 +14,7 @@ import { getCurrentRegion, actChangeRegionRequest } from "../actions/region";
 import { getPercentScrollOfElement, debounce } from "../actions/lodash";
 const AppContainer = props => {
   const [state, dispatch] = useReducer(AppReducer, initState);
-  const { user, listVideo, isLoadMore } = state;
-  const region = getCurrentRegion().code;
+  const { region, user, listVideo, isLoadMore } = state;
   const [positionScroll, setPositionScroll] = useState(0);
   const [loading, setLoading] = useState(true);
   const actFetchListVideo = (regionCode, isLoadMore) => {
@@ -65,7 +64,7 @@ const AppContainer = props => {
         actFetchListVideo,
         actgetListUserVideo,
         actGetUserInfo,
-        actSetLoadMore
+        actSetLoadMore,
       }}
     >
       <Router>

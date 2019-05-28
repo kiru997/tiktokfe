@@ -1,6 +1,6 @@
-import React from 'react';
-import {Link} from "react-router-dom";
-const showImages = (listVideo,formatHeartCount,regionCode) => {
+import React from "react";
+import { Link } from "react-router-dom";
+const showImages = (listVideo, formatHeartCount, regionCode) => {
   listVideo = [...listVideo].splice(1, listVideo.length);
   return listVideo.map((item, index) => {
     return (

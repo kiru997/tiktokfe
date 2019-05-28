@@ -1,8 +1,5 @@
 import * as ActionTypes from "../constants/actionTypes";
-import {
-  getCookie,
-  setCookie
-} from "./cookie";
+import { getCookie, setCookie } from "./cookie";
 import Regions from "../constants/regions";
 
 const actChangeRegion = region => {
