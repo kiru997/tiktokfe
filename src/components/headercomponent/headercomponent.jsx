@@ -41,7 +41,7 @@ const HeaderComponent = () => {
         </div>
         <div className="menu-container">
           <div className="menu-item">
-            <Link to="/">Trending</Link>
+            <Link to="/">Home</Link>
           </div>
           <div
             className={`menu-item menu-region ${
@@ -75,7 +75,7 @@ const HeaderComponent = () => {
               {listLanguage(languages)}
             </div>
           </div> */}
-          <div className="menu-item">
+          {/* <div className="menu-item">
             <div
               onClick={() => setOpenOne(false, false, !isOpenMenuContainer)}
               className={`menu-burger ${
@@ -87,7 +87,7 @@ const HeaderComponent = () => {
               <span className="menu-burger-part menu-burger-bottom" />
             </div>
             <div className="menu-right" />
-          </div>
+          </div> */}
         </div>
       </div>
     </header>

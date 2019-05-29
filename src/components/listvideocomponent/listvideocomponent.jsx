@@ -2,6 +2,7 @@ import React, { useContext, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import GlobalContext from "../../context/GlobalContext";
 import { formatHeartCount } from "../../actions/lodash";
+import {getCookie,setCookie} from "../../actions/cookie";
 import showImages from "./showImages.jsx";
 const ListvideoComponent = props => {
   const params = props.match.params;
@@ -20,19 +21,25 @@ const ListvideoComponent = props => {
   };
 
   useEffect(() => {
-    if (params && !params.videoUid) {
-      if (
-        Object.keys(params).length == 0 ||
-        (params.region && !params.userUid && !params.videoUid)
-      ) {
-        actFetchListVideo(region, false);
-        actFetchListVideo(region, true);
-        actSetLoadMore(true);
-      } else if (params && params.userUid) {
-        actgetListUserVideo(params.userUid, region);
-        actSetLoadMore(false);
+    if(!getCookie("isCloseDetail",false))
+    {
+      if (params && !params.videoUid) {
+        if (
+          Object.keys(params).length == 0 ||
+          (params.region && !params.userUid && !params.videoUid)
+        ) {
+          actFetchListVideo(region, false).then(() => {
+            actFetchListVideo(region, true);
+          });
+          actSetLoadMore(true);
+        } else if (params && params.userUid) {
+          actgetListUserVideo(params.userUid, region);
+          actSetLoadMore(false);
+        }
       }
+      setCookie("isCloseDetail", false, 10, false);
     }
+    
   }, [region]);
   return (
     listVideo.length > 0 && (

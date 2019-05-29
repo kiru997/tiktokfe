@@ -10,6 +10,7 @@ import {
   actgetUserInfoRequest,
   actSetLoadMoreRequest
 } from "../actions/tiktok";
+import { setCookie } from "../actions/cookie";
 import { getCurrentRegion, actChangeRegionRequest } from "../actions/region";
 import { getPercentScrollOfElement, debounce } from "../actions/lodash";
 const AppContainer = props => {
@@ -51,6 +52,7 @@ const AppContainer = props => {
     }
   };
   useEffect(() => {
+    setCookie("isCloseDetail", false, 10, false);
     setPositionScroll(0);
   }, [isLoadMore]);
   return (
@@ -64,7 +66,7 @@ const AppContainer = props => {
         actFetchListVideo,
         actgetListUserVideo,
         actGetUserInfo,
-        actSetLoadMore,
+        actSetLoadMore
       }}
     >
       <Router>

@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import AppContext from "../../context/GlobalContext";
 import ListComment from "./listcomment.jsx";
 import { getCurrentRegion } from "../../actions/region";
+import { setCookie } from "../../actions/cookie";
 const VideodetailComponent = props => {
   const context = useContext(AppContext);
   const videoUid = props.match.params.videoUid;
@@ -42,6 +43,7 @@ const VideodetailComponent = props => {
     isPlay ? videoElement.pause() : videoElement.play();
   };
   const onCloseDetail = () => {
+    setCookie("isCloseDetail", true, 10, false);
     setIsPlay(true);
   };
 

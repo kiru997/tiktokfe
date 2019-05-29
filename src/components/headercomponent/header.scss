@@ -93,6 +93,7 @@ header {
           height: 100vh;
           position: fixed;
           top: 0;
+          z-index: 1;
           right: -400px;
           background: #ff0000;
           transition: linear 0.5s;

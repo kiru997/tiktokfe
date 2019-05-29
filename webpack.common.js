@@ -45,9 +45,10 @@ module.exports = {
       name: true,
       cacheGroups: {
         react: {
-          test: /[\\/]node_modules[\\/](react|react-router-dom|react-dom)[\\/]/,
+          test: /[\\/]node_modules[\\/](react|react-router-dom|react-dom|@loadable\/component)[\\/]/,
           name: "react",
           chunks: "all",
+          priority:1,
           reuseExistingChunk: true
         },
         default: {
@@ -71,8 +72,12 @@ module.exports = {
         exclude: [/node_modules/]
       },
       {
-        test: /\.(png|svg|jpg|gif|svg)$/,
+        test: /\.(png|svg|jpg|gif)$/,
         use: ["file-loader?name=images/render/[name].[ext]"]
+      },
+      {
+        test: /\.svg$/,
+        use: ["file-loader?name=images/render/[name].[ext]","svg-inline-loader"],
       }
     ]
   },
